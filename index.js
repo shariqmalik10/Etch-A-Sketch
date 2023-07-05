@@ -6,7 +6,7 @@ const gridSelect = document.getElementById("gridBtn")
 let gridR = document.getElementById("gridR")
 
 gridSelect.addEventListener('click', ()=>{
-    gridR.classList.replace("invisible", "visible");
+    gridR.classList.toggle("invisible");
 })
 
 // add label to the range slider 
@@ -17,18 +17,22 @@ document.querySelector('input[type=range]').addEventListener('input', function r
     createNewGrid(this.value);
 });
 
-// document.querySelector()
-
+//reset button 
+document.getElementById("resetBtn").addEventListener('click', ()=> {
+    resetColor();
+})
 
 //creating a function for selection of grid size and adding all the grids accordingly 
 function createNewGrid(gridSize){
-    console.log(gridSize);
     adjustSize(gridSize);
     // var gridSize = gridR.value;
     for(let i =0; i < gridSize*gridSize; i++){
         var square = `div${i}`;
         var square = document.createElement("div");
         square.classList.add("cell", "border");
+        square.addEventListener('mouseover', function(event){
+            event.target.style.backgroundColor = "black";
+        })
         grid_cont.append(square)
     }
 }
@@ -36,6 +40,16 @@ function createNewGrid(gridSize){
 //reset the grid if user selects a different grid size 
 function resetGrid(){
     grid_cont.replaceChildren();
+}
+
+//only change color back to white for all cells. No modification to size 
+function resetColor() {
+    var nodes = grid_cont.childNodes;
+    for(var i=0; i<nodes.length; i++) {
+        if (nodes[i].nodeName.toLowerCase() == 'div') {
+            nodes[i].style.backgroundColor = "white";
+        }
+    }
 }
 
 //function to adjust cell size within grid 
@@ -49,6 +63,6 @@ function adjustSize(gridSize) {
 }
 
 // default grid 
-createNewGrid(10)
+createNewGrid(10);
 
 

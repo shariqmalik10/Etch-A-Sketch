@@ -11,7 +11,7 @@ At the moment there are two main features of the project:
 2. Reset to get a clean slate
 
 # Demo 
-[Click here] to access the application 
+[Click here](https://shariqmalik10.github.io/Etch-A-Sketch/) to access the application 
 
 # Note
 Kindly note that the application currently runs only in full screen on laptop. At the moment the responsive rescaling of the site

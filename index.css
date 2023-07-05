@@ -1,0 +1,76 @@
+:root {
+    --size-selector-column: 10;
+    --size-selector-row: 10;
+    --cell-container-width: 100px;
+    --cell-container-height: 100px;
+}
+
+#grid-container{
+    display: grid;
+    width: 800px;
+    height: 800px;
+    grid-template-columns: repeat(var(--size-selector-column), 2fr);
+    grid-template-rows: repeat(var(--size-selector-row), 2fr);
+    margin: auto; 
+    justify-content: center;
+
+}
+#btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#range-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell{
+    width: var(--cell-container-width);
+    height: var(--cell-container-height);
+    background-color: white;
+}
+
+.size-btn{
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 10;
+}
+
+.gridR{
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 10px;
+}
+
+input[type="range"] {
+    position: relative;
+    margin-top: 12px;
+  }
+  
+input[type="range"]:before {
+position: absolute;
+top: -17px;
+left: 50%;
+margin-left: -10px;
+content: attr(value);
+display: block;
+text-align: center;
+width: 20px;
+height: 10px;
+}
+
+.header{
+    color: black;
+    text-align: center;
+}
+
+.background-setting{
+    background-color: honeydew;
+}
+
